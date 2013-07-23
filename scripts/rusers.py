@@ -40,8 +40,7 @@ def main():
     connection = httplib.HTTPConnection("www.reddit.com")
     for i, subreddit in enumerate(SUBREDDITS):
         count = get_user_count(connection, subreddit)
-        central = pytz.timezone('US/Central')
-        local_time = central.localize(datetime.now())
+        local_time = get_central_time()
         row = '{subreddit},{count},{time}'.format(subreddit=subreddit,
                 count=count, time=local_time.strftime('%Y-%m-%d %H:%M:%S'))
         # Write the data to csv
@@ -50,6 +49,12 @@ def main():
         print(row)
         if i != len(SUBREDDITS) - 1:
             time.sleep(DELAY)
+
+
+def get_central_time():
+    utc_now = datetime.now(pytz.utc)
+    central = pytz.timezone('US/Central')
+    return central.normalize(utc_now.astimezone(central))
 
 
 def write_header(filename, header):
