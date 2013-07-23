@@ -1,10 +1,10 @@
 # Data sources
 
-Base url: http://datasources-sloria.rhcloud.com
+Base url: http://data.stevenloria.com
 
 Datasets:
 
-- python-subreddit-traffic.csv
+- [python-subreddit-traffic.csv](http://data.stevenloria.com/python-subreddit-traffic.csv)
 
 ## License
 
