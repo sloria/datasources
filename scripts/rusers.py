@@ -8,7 +8,7 @@ from datetime import datetime
 import pytz
 from bs4 import BeautifulSoup
 
-SUBREDDITS = ['programming', 'python', 'django', 'flask']
+SUBREDDITS = ['programming', 'learnpython', 'python', 'django', 'flask']
 HEADER = ['subreddit', 'users', 'date']
 MODULE = os.path.dirname(os.path.abspath(__file__))
 
